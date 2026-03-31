@@ -30,6 +30,7 @@ int main(int argc, char *argv[]) {
 
     pid = fork();
     if(pid == -1) {
+        close(fd);
         perror("Fork");
         return -1;
     }
