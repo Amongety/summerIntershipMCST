@@ -25,14 +25,14 @@ int main(int argc, char *argv[]) {
 
     if ((fd = open(argv[1], O_RDWR)) == -1) {
         perror("Open");
-        return -1;
+        return errno;
     }
 
     pid = fork();
     if(pid == -1) {
         close(fd);
         perror("Fork");
-        return -1;
+        return errno;
     }
 
     if(pid == 0) {
